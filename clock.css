@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family_Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin:0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2f363e;
+}
+.container{
+    position: relative;
+}
+.clock{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background: #2f363e;
+    box-shadow: 10px 50px 70px rgba(0,0,0,0.25) ;
+}
