@@ -11,7 +11,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #2f363e;
+    background: #121e2b;
 }
 .container{
     position: relative;
@@ -20,7 +20,7 @@ body{
     position: relative;
     width: 450px;
     height: 450px;
-    background: #2f363e;
+    background: #2b474d;
     box-shadow: 10px 50px 70px rgba(0,0,0,0.25) ;
     display:flex;
     justify-content: center;
@@ -43,10 +43,43 @@ body{
     text-align: center;
     transform: rotate(calc(30deg * var(--i))); /*360/12=30 deg*/
 }
-.color span b{
-    font-size: 2em;
+.clock span b{
+    font-size: 1.6em;
     opacity: 0.25;
     font-weight: 100;
-    display: inline-block;
+    display : inline-block;
     transform: rotate(calc(-30deg * var(--i))); /*360/12=30 deg*/
+}
+.circle{
+    position: absolute;
+    width:300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0.25);
+    display:flex;
+    justify-content :center;
+    align-items: flex-start;
+}
+.circle i{
+    position: absolute;
+    width :8px;
+    height :50%;
+    background: var(--clr);
+    opacity: 1;
+    transform-origin: bottom;
+    transform :scaleY(0.5);
+}
+.circle :nth-child(1) i{
+    width: 2px;
+}
+.circle :nth-child(2) i{
+    width: 4px;
+}
+.circle2{
+    width: 240px;
+    height: 240px;
+}
+.circle3{
+    width: 150px;
+    height: 150px;
 }
