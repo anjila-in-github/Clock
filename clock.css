@@ -14,7 +14,9 @@ body{
     background: #121e2b;
 }
 .container{
+    flex-direction:  column;
     position: relative;
+    
 }
 .clock{
     position: relative;
@@ -26,6 +28,7 @@ body{
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
+    border-radius: 40%;
 }
 .clock::before{
     content:'';
@@ -46,7 +49,7 @@ body{
     transform: rotate(calc(30deg * var(--i))); /*360/12=30 deg*/
 }
 .clock span b{
-    font-size: 1.6em;
+    font-size: 1.4em;
     opacity: 0.25;
     font-weight: 100;
     display : inline-block;
@@ -70,8 +73,8 @@ body{
     background: var(--clr);
     opacity: 0.5;
     transform-origin: bottom;
-    transform :scaleY(0.75);
-    z-index: 9;
+    transform :scaleY(0.5);
+   
 }
 .circle :nth-child(1) i{
     width: 2px;
@@ -80,8 +83,8 @@ body{
     width: 6px;
 }
 .circle2{
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
     z-index: 9;
 }
 .circle3{
@@ -92,11 +95,26 @@ body{
 .circle::before{
     content: '';
     position: absolute;
-    top: 8.5px;
+    top: -8.5px;
     border-radius: 50%;
     width: 15px;
     height: 15px;
     background: var(--clr);
     box-shadow: 0 0 20px var(--clr),
     0 0 60px var(--clr);
+}
+
+/*digital clock
+#time{
+    margin-bottom: 40px;
+    display: flex;
+    padding: 10px 20px;
+    font-size: 2em;
+    font-weight: 550;
+    border:2px solid rgba(182, 112, 8, 0.25);
+    border-radius: 40px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 7, 0.25),
+    inset 5px 5px 20px rgba(116, 3, 3, 0.2),
+    inset -5px -5px 15px rgba(0,0,0,0.75);
+
 }
