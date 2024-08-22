@@ -104,7 +104,7 @@ body{
     0 0 60px var(--clr);
 }
 
-/*digital clock
+/*digital clock*/
 #time{
     margin-bottom: 40px;
     display: flex;
@@ -117,4 +117,11 @@ body{
     inset 5px 5px 20px rgba(116, 3, 3, 0.2),
     inset -5px -5px 15px rgba(0,0,0,0.75);
 
+}
+
+#time div{
+    position: relative;
+    width: 60px;
+    text-align: center;
+    font-weight: 500;
 }
