@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clock</title>
     <link rel="stylesheet" href="clock.css">
 </head>
 <body>
     <div class="container">
+        <!-- Digital Clock -->
+        <div id="time">
+            <div id="hours" style="--clr: #E4003A">00</div> 
+            <div id="minutes" style="--clr: #EB5B00">00</div>
+            <div id="seconds" style="--clr: #FFB200">00</div>
+            <div id="ampm">AM</div>
+        </div>
+
+        <!-- Analog Clock -->
         <div class="clock">
-            
-             
             <div class="circle" id="sc" style="--clr: #FFB200"><i></i></div>
             <div class="circle circle2" id="mn" style="--clr: #EB5B00"><i></i></div>
             <div class="circle circle3" id="hr" style="--clr: #E4003A"><i></i></div>
@@ -30,21 +37,53 @@
         </div>
     </div>
 
-    <!--digital clock -->
-
-     <div id="time">
-        <div id="hours" style="--clr: #E4003A">00</div> 
-        <div id="minutes" style="--clr: #EB5B00">00</div>
-        <div id="seconds" style="--clr: #FFB200">00</div>
-        <div id="ampm">AM</div>
-
+    <!-- JavaScript directly in HTML -->
+    <script>
+        console.log("JavaScript loaded directly in HTML!");
         
-
-    </div>
-   
-
-    <script src="clock.js">
+        function updateClock() {
+            console.log("Clock updating...");
+            
+            let now = new Date();
+            let currentHours = now.getHours();
+            let currentMinutes = now.getMinutes();
+            let currentSeconds = now.getSeconds();
+            
+            // Digital clock
+            let displayHours = currentHours;
+            let ampmText = currentHours >= 12 ? "PM" : "AM";
+            
+            if (displayHours > 12) {
+                displayHours = displayHours - 12;
+            } else if (displayHours === 0) {
+                displayHours = 12;
+            }
+            
+            let formattedHours = displayHours < 10 ? "0" + displayHours : displayHours;
+            let formattedMinutes = currentMinutes < 10 ? "0" + currentMinutes : currentMinutes;
+            let formattedSeconds = currentSeconds < 10 ? "0" + currentSeconds : currentSeconds;
+            
+            document.getElementById('hours').innerHTML = formattedHours;
+            document.getElementById('minutes').innerHTML = formattedMinutes;
+            document.getElementById('seconds').innerHTML = formattedSeconds;
+            document.getElementById('ampm').innerHTML = ampmText;
+            
+            // Analog clock
+            let hourAngle = (currentHours % 12) * 30 + (currentMinutes * 0.5);
+            let minuteAngle = currentMinutes * 6;
+            let secondAngle = currentSeconds * 6;
+            
+            document.getElementById('hr').style.transform = `rotateZ(${hourAngle}deg)`;
+            document.getElementById('mn').style.transform = `rotateZ(${minuteAngle}deg)`;
+            document.getElementById('sc').style.transform = `rotateZ(${secondAngle}deg)`;
+        }
         
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            console.log("Page loaded, starting clock");
+            updateClock(); // Run once immediately
+            setInterval(updateClock, 1000); // Then every second
+        });
     </script>
 </body>
 </html>
