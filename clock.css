@@ -108,7 +108,7 @@ body{
 #time{
     margin-bottom: 40px;
     display: flex;
-    padding: 10px 20px;
+    padding: 10px 120px;
     font-size: 2em;
     font-weight: 550;
     border:2px solid rgba(182, 112, 8, 0.25);
